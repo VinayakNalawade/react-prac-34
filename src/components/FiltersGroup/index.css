@@ -1,0 +1,122 @@
+.filters-group-container {
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .filters-group-container {
+    width: 30%;
+    max-width: 350px;
+    margin-top: 48px;
+    flex-shrink: 0;
+  }
+}
+
+.filter-input-container {
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+}
+
+.filter-search {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.search-icon {
+  font-size: 20px;
+  margin-right: 8px;
+  margin-left: 5px;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.category-button {
+  border: none;
+  padding: 0;
+  outline: none;
+  background-color: transparent;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.selected-category-button {
+  border: none;
+  padding: 0;
+  outline: none;
+  background-color: transparent;
+  color: #0967d2;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.category-heading {
+  color: #12022f;
+  font-size: 21px;
+}
+
+.ratings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rating-img {
+  width: 65%;
+  margin-right: 5px;
+}
+
+.rating-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  padding: 0;
+  outline: none;
+  background-color: transparent;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  border: 1px solid red;
+}
+
+.selected-rating-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  padding: 0;
+  outline: none;
+  background-color: transparent;
+  color: #0967d2;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  border: 1px solid red;
+}
+
+.clear-filter-button {
+  border: 1px solid #0967d2;
+  color: #0967d2;
+  background-color: transparent;
+  outline: none;
+  font-size: 15px;
+  padding: 8px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}

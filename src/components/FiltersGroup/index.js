@@ -18,28 +18,22 @@ class FiltersGroup extends Component {
     }
   }
 
-  onCategory = event => {
-    const {changeCategory} = this.props
-    changeCategory(event.target.value)
-  }
-
-  onRating = event => {
-    const {changeRating} = this.props
-    changeRating(event.target.value)
-  }
-
   clearFilter = () => {
     const {clearFilters} = this.props
     this.setState({search: ''})
     clearFilters()
   }
 
-  renderCategories = () => {
-    const {categoryOptions, category} = this.props
+  renderCategories = each => {
+    const {changeCategory, category} = this.props
 
-    return categoryOptions.map(each => (
-      <button
-        onClick={this.onCategory}
+    const onCategory = () => {
+      changeCategory(each.categoryId)
+    }
+
+    return (
+      <p
+        onClick={onCategory}
         type="button"
         className={
           category === each.categoryId
@@ -48,16 +42,20 @@ class FiltersGroup extends Component {
         }
         key={each.name}
       >
-        <p>{each.name}</p>
-      </button>
-    ))
+        {each.name}
+      </p>
+    )
   }
 
-  renderRatings = () => {
-    const {ratingsList, rating} = this.props
-    return ratingsList.map(each => (
+  renderRatings = each => {
+    const {changeRating, rating} = this.props
+
+    const onRating = () => {
+      changeRating(each.ratingId)
+    }
+    return (
       <p
-        onClick={this.onRating}
+        onClick={onRating}
         type="button"
         className={
           rating === each.ratingId ? 'selected-rating-button' : 'rating-button'
@@ -65,13 +63,19 @@ class FiltersGroup extends Component {
         value={each.ratingId}
         key={each.imageUrl}
       >
-        <img className="rating-img" alt={each.id} src={each.imageUrl} />& up
+        <img
+          className="rating-img"
+          alt={`rating ${each.ratingId}`}
+          src={each.imageUrl}
+        />
+        & up
       </p>
-    ))
+    )
   }
 
   render() {
     const {search} = this.state
+    const {categoryOptions, ratingsList} = this.props
 
     return (
       <div className="filters-group-container">
@@ -88,11 +92,11 @@ class FiltersGroup extends Component {
         </div>
         <div className="category-container">
           <h1 className="category-heading">Category</h1>
-          {this.renderCategories()}
+          {categoryOptions.map(each => this.renderCategories(each))}
         </div>
         <div className="ratings-container">
           <h1 className="category-heading">Rating</h1>
-          {this.renderRatings()}
+          {ratingsList.map(each => this.renderRatings(each))}
         </div>
         <button
           className="clear-filter-button"
